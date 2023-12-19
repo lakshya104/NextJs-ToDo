@@ -1,0 +1,88 @@
+"use client"
+
+import React, { useState, ChangeEvent, MouseEventHandler } from "react";
+import Wrapper from "./Wrapper";
+import Input from "./Input";
+import Button from "./Button";
+import List from "./List";
+
+interface ToDoItem {
+  id: number;
+  title: string;
+}
+
+export default function ToDo() {
+  const [toDo, setToDo] = useState<string>("Task One");
+  const [toDoArray, setToDoArray] = useState<ToDoItem[]>([]);
+  const [editInput, setEditInput] = useState<boolean>(false);
+  const [editValue, setEditValue] = useState<string>("");
+  const [editItemId, setEditItemId] = useState<number | null>(null);
+
+  const removeItem = (removeId: number) => {
+    const newArray = toDoArray.filter((item) => item.id !== removeId);
+    setToDoArray(newArray);
+  };
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setToDo(e.target.value);
+  };
+
+  const edit = (id: number) => {
+    setEditInput(true);
+    setEditItemId(id);
+  };
+
+  const saveEdit = () => {
+    setToDoArray((prev) =>
+      prev.map((item) =>
+        item.id === editItemId ? { ...item, title: editValue } : item
+      )
+    );
+    setEditValue("");
+    setEditInput(false);
+  };
+
+  const onChangeEdit = (e: ChangeEvent<HTMLInputElement>) => {
+    setEditValue(e.target.value);
+  };
+
+  const onClick: MouseEventHandler<HTMLButtonElement> = () => {
+    if (toDo !== "") {
+      setToDoArray((prev) => [
+        ...prev,
+        {
+          id: toDoArray.length,
+          title: toDo,
+        },
+      ]);
+    }
+    setToDo("");
+  };
+
+  return (
+    <div className="flex justify-center items-center ">
+      <Wrapper>
+        <h1 className="text-3xl text-white font-bold m-5">ToDo App</h1>
+        <div className="bg-slate-700 flex justify-center items-center">
+          <Input onChange={onChange} toDo={toDo} />
+          <Button onClick={onClick} title={"Add"} />
+        </div>
+        {toDoArray.map((item) => {
+          return (
+            <List
+              saveEdit={saveEdit}
+              onChangeEdit={onChangeEdit}
+              key={item.id}
+              item={item}
+              edit={edit}
+              removeItem={removeItem}
+            />
+          );
+        })}
+
+        <div className="text-center mt-7">
+        </div>
+      </Wrapper>
+    </div>
+  );
+}
