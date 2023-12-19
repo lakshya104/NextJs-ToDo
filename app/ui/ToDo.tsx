@@ -63,7 +63,7 @@ export default function ToDo() {
     <div className="flex justify-center items-center ">
       <Wrapper>
         <h1 className="text-3xl text-white font-bold m-5">ToDo App</h1>
-        <div className="bg-slate-700 flex justify-center items-center">
+        <div className="bg-slate-700 flex justify-center flex-col md:flex-row items-center">
           <Input onChange={onChange} toDo={toDo} />
           <Button onClick={onClick} title={"Add"} />
         </div>
