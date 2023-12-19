@@ -11,7 +11,7 @@ interface ListProps {
 
 const List: React.FC<ListProps> = ({ edit, item, removeItem, saveEdit, onChangeEdit }) => {
   return (
-    <div className="flex justify-center mt-2.5 items-center">
+    <div className="flex justify-center mt-2.5 w-[70%] items-center">
       <Dialog.Root>
         <Dialog.Trigger asChild>
           <button
