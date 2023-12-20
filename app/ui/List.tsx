@@ -1,15 +1,21 @@
-import React, { ChangeEvent} from 'react';
+import React, { ChangeEvent } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 
 interface ListProps {
   edit: (id: number) => void;
-  item: { id: number, title: string };
+  item: { id: number; title: string };
   removeItem: (id: number) => void;
   saveEdit: () => void;
   onChangeEdit: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const List: React.FC<ListProps> = ({ edit, item, removeItem, saveEdit, onChangeEdit }) => {
+const List: React.FC<ListProps> = ({
+  edit,
+  item,
+  removeItem,
+  saveEdit,
+  onChangeEdit,
+}) => {
   return (
     <div className="flex justify-center mt-2.5 w-[70%] items-center">
       <Dialog.Root>
@@ -48,7 +54,10 @@ const List: React.FC<ListProps> = ({ edit, item, removeItem, saveEdit, onChangeE
             </fieldset>
             <div className="mt-[25px] flex justify-end">
               <Dialog.Close asChild>
-                <button onClick={saveEdit} className="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
+                <button
+                  onClick={saveEdit}
+                  className="bg-green4 text-green11 hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none"
+                >
                   Save changes
                 </button>
               </Dialog.Close>
@@ -92,13 +101,16 @@ const List: React.FC<ListProps> = ({ edit, item, removeItem, saveEdit, onChangeE
           viewBox="0 0 24 24"
           fill="none"
           stroke="white"
-          strokeWidth="2"
+          strokeWidth="1"
           strokeLinecap="round"
           strokeLinejoin="round"
           className="lucide lucide-x hover:cursor-pointer hover:scale-125 transition"
         >
-          <path d="M18 6 6 18" />
-          <path d="m6 6 12 12" />
+          <path d="M3 6h18" />
+          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+          <line x1="10" x2="10" y1="11" y2="17" />
+          <line x1="14" x2="14" y1="11" y2="17" />
         </svg>
       </button>
     </div>

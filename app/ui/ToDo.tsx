@@ -7,6 +7,7 @@ import Wrapper from "./Wrapper";
 import Input from "./Input";
 import Button from "./Button";
 import List from "./List";
+import { ToastAction } from "@/components/ui/toast"
 
 interface ToDoItem {
   id: number;
@@ -19,11 +20,17 @@ export default function ToDo() {
   const [editInput, setEditInput] = useState<boolean>(false);
   const [editValue, setEditValue] = useState<string>("");
   const [editItemId, setEditItemId] = useState<number | null>(null);
-  const { toast } = useToast()
+  const { toast } = useToast();
 
   const removeItem = (removeId: number) => {
     const newArray = toDoArray.filter((item) => item.id !== removeId);
     setToDoArray(newArray);
+    toast({
+      variant: "destructive",
+      title: "Deleted",
+      description: "You successfully deleted a Task.",
+      action: <ToastAction altText="Try again">Task Removed</ToastAction>,
+    })
   };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {

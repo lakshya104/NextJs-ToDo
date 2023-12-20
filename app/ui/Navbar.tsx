@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import Image from "next/image";
 
-
 export default function Navbar() {
   return (
     <div className="bg-slate-800 flex md:flex-row flex-col items-center justify-around py-1">
@@ -25,7 +24,7 @@ export default function Navbar() {
           width={50}
           height={40}
           alt="Picture of the logo"
-         className=" rotate-90"
+          className=" rotate-90"
         />
       </div>
       <div>
@@ -50,36 +49,36 @@ export default function Navbar() {
                           alt="Picture of the logo"
                         />
                         <div className="mb-2 mt-4 text-lg font-medium">
-                          shadcn/ui
+                          ToDo App
                         </div>
                         <p className="text-sm leading-tight text-muted-foreground">
-                          Beautifully designed components built with Radix UI
-                          and Tailwind CSS.
+                          These components are built with Radix UI, ShadCn,
+                          Tailwind CSS.
                         </p>
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <ListItem href="/docs" title="Introduction">
-                    Re-usable components built using Radix UI and Tailwind CSS.
+                  <ListItem href="/" title="Reusable">
+                    These components can be reused.
                   </ListItem>
-                  <ListItem href="/docs/installation" title="Installation">
-                    How to install dependencies and structure your app.
+                  <ListItem href="/" title="Add your tasks.">
+                    Edit and save your tasks.
                   </ListItem>
                   <ListItem
-                    href="/docs/primitives/typography"
-                    title="Typography"
+                    href="/"
+                    title="Responsive"
                   >
-                    Styles for headings, paragraphs, lists...etc
+                    This SPA is responsive.
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/docs" legacyBehavior passHref>
+              <Link href="https://github.com/lakshya104/NextJs-ToDo" legacyBehavior passHref>
                 <NavigationMenuLink
                   className={`${navigationMenuTriggerStyle()}, m-2 w-[150px] text-black`}
                 >
-                  Documentation
+                 Github Link
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
