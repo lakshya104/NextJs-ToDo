@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, ChangeEvent, MouseEventHandler } from "react";
 import Wrapper from "./Wrapper";
@@ -60,29 +60,26 @@ export default function ToDo() {
   };
 
   return (
-    <div className="flex justify-center items-center ">
-      <Wrapper>
-        <h1 className="text-3xl text-white font-bold m-5">ToDo App</h1>
-        <div className="bg-slate-700 flex justify-center flex-col md:flex-row items-center">
-          <Input onChange={onChange} toDo={toDo} />
-          <Button onClick={onClick} title={"Add"} />
-        </div>
-        {toDoArray.map((item) => {
-          return (
-            <List
-              saveEdit={saveEdit}
-              onChangeEdit={onChangeEdit}
-              key={item.id}
-              item={item}
-              edit={edit}
-              removeItem={removeItem}
-            />
-          );
-        })}
+    <Wrapper>
+      <h1 className="text-3xl text-white font-bold m-5">ToDo App</h1>
+      <div className="flex justify-center flex-col md:flex-row items-center">
+        <Input onChange={onChange} toDo={toDo} />
+        <Button onClick={onClick} title={"Add"} />
+      </div>
+      {toDoArray.map((item) => {
+        return (
+          <List
+            saveEdit={saveEdit}
+            onChangeEdit={onChangeEdit}
+            key={item.id}
+            item={item}
+            edit={edit}
+            removeItem={removeItem}
+          />
+        );
+      })}
 
-        <div className="text-center mt-7">
-        </div>
-      </Wrapper>
-    </div>
+      <div className="text-center mt-7"></div>
+    </Wrapper>
   );
 }
