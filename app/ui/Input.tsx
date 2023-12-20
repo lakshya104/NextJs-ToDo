@@ -12,7 +12,7 @@ const Input: React.FC<InputProps> = ({ onChange, toDo }) => {
       placeholder="Enter your tasks!"
       onChange={onChange}
       value={toDo}
-      className="bg-white rounded-xl p-2 my-2 rounded-r-none text-black text-center outline-none"
+      className="bg-white rounded-md p-2 my-2 md:rounded-r-none text-black text-center outline-none"
     />
   );
 };

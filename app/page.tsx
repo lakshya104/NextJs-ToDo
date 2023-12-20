@@ -2,7 +2,7 @@ import ToDo from "./ui/ToDo";
 
 export default function Home() {
   return (
-    <div className="flex items-center flex-col md:flex-row justify-around w-screen">
+    <div className="flex items-center flex-col-reverse md:flex-row justify-around">
       <div className="flex justify-center items-center w-screen md:w-[40%]">
         <ToDo />
       </div>
@@ -11,7 +11,7 @@ export default function Home() {
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-700 from-sky-800">
             Better And
           </span>{" "}
-          Scalable TODO.
+          Scalable.
         </h1>
         <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora

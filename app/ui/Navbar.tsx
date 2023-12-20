@@ -18,20 +18,21 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <div className="bg-slate-800 w-[100%] flex md:flex-row flex-col items-center justify-around py-2">
+    <div className="bg-slate-800 flex md:flex-row flex-col items-center justify-around py-1">
       <div>
         <Image
           src="https://images.unsplash.com/photo-1611488006018-95b79a137ff5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fGxvZ298ZW58MHx8MHx8fDA%3D"
           width={50}
-          height={50}
+          height={40}
           alt="Picture of the logo"
+         className=" rotate-90"
         />
       </div>
       <div>
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="m-2 text-black">
+              <NavigationMenuTrigger className="m-2 w-[150px] text-black">
                 Getting started
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -76,7 +77,7 @@ export default function Navbar() {
             <NavigationMenuItem>
               <Link href="/docs" legacyBehavior passHref>
                 <NavigationMenuLink
-                  className={`${navigationMenuTriggerStyle()}, m-2 text-black`}
+                  className={`${navigationMenuTriggerStyle()}, m-2 w-[150px] text-black`}
                 >
                   Documentation
                 </NavigationMenuLink>

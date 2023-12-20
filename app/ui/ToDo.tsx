@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, ChangeEvent, MouseEventHandler } from "react";
+import { useToast } from "@/components/ui/use-toast"
+
 import Wrapper from "./Wrapper";
 import Input from "./Input";
 import Button from "./Button";
@@ -12,11 +14,12 @@ interface ToDoItem {
 }
 
 export default function ToDo() {
-  const [toDo, setToDo] = useState<string>("Task One");
+  const [toDo, setToDo] = useState<string>("");
   const [toDoArray, setToDoArray] = useState<ToDoItem[]>([]);
   const [editInput, setEditInput] = useState<boolean>(false);
   const [editValue, setEditValue] = useState<string>("");
   const [editItemId, setEditItemId] = useState<number | null>(null);
+  const { toast } = useToast()
 
   const removeItem = (removeId: number) => {
     const newArray = toDoArray.filter((item) => item.id !== removeId);
@@ -40,6 +43,10 @@ export default function ToDo() {
     );
     setEditValue("");
     setEditInput(false);
+    toast({
+      title: "Changes Saved!",
+      description: "You successfully edited the task.",
+    })
   };
 
   const onChangeEdit = (e: ChangeEvent<HTMLInputElement>) => {
