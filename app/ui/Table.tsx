@@ -14,7 +14,7 @@ type Task = {
   id: number;
   title: string;
   priority: string;
-  date: Date;
+  date: string;
 };
 
 type Option = {
@@ -64,7 +64,7 @@ const TableCell = ({ getValue, row, column, table }: any) => {
     </select>
   ) : (
     <input
-      className=" w-[70px] md:w-[130px]"
+      className=" w-[70px] md:w-[130px] bg-white"
       value={value}
       onChange={(e) => setValue(e.target.value)}
       onBlur={onBlur}
@@ -115,7 +115,7 @@ interface TableProps {
 }
 
 export const Table: React.FC<TableProps> = ({ array }) => {
-  const [data, setData] = useState(() => [...array]);
+  const [data, setData] = useState(()=>[...array]);
 
   const table = useReactTable({
     data,

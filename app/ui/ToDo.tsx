@@ -13,7 +13,7 @@ interface ToDoItem {
   id: number;
   title: string;
   priority: string;
-  date: any;
+  date: string;
 }
 
 export default function ToDo() {
@@ -63,6 +63,15 @@ export default function ToDo() {
   // };
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
+    const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+
+    // This arrangement can be altered based on how we want the date's format to appear.
+    let currentDate = `${year}-${month}-${day}`;
+    console.log(currentDate); 
     if (toDo !== "") {
       setToDoArray((prev) => [
         ...prev,
@@ -70,7 +79,7 @@ export default function ToDo() {
           id: toDoArray.length + 1,
           title: toDo,
           priority: "",
-          date:"",
+          date: currentDate,
         },
       ]);
     }
